@@ -1,0 +1,135 @@
+--- CUNSULTAS EJERCICIO 1 ---
+
+A) ¿Cuál es la capital de un departamento que exista en la base de datos?.
+
+1 ?- capital(antioquia, X).
+X = medellin.
+
+2 ?- capital(magdalena, Y).
+Y = 'santa marta'.
+
+3 ?- capital(atlantico, Z).
+Z = barranquilla.
+
+4 ?- capital(vichada, A).
+A = 'puerto carreño'.
+
+ሀ5 ?- capital(quindio, B).
+B = armenia.
+
+?- capital('norte de santander', CAPITAL).
+CAPITAL = cucuta.
+
+B) ¿Cuál es la capital de un departamento que no exista en la base de datos?.
+
+6 ?- capital(cundinamarca, C).
+false.
+
+7 ?- capital(tolima, T).
+false.
+
+C) ¿De qué departamento es capital una ciudad que esté en la base de datos?.
+
+8 ?- capital(A, medellin).
+A = antioquia.
+
+9 ?- capital(A, barranquilla).
+A = atlantico.
+
+10 ?- capital(V, 'puerto carreño').
+V = vichada.
+
+D) C: Capital, CD: Capital del Departamento
+
+11 ?- capital(D, CD).
+D = antioquia,
+CD = medellin ;
+D = atlantico,
+CD = barranquilla ;
+D = vichada,
+CD = 'puerto carreño' ;
+D = magdalena,
+CD = 'santa marta' ;
+D = quindio,
+CD = armenia.
+
+--- CUNSULTAS EJERCICIO 2 ---
+
+A) ¿En qué películas actuó una persona?
+
+12 ?- actorPelicula('will smith', P).
+P = focus ;
+P = 'soy leyenda' ;
+P = 'en busca de la felicidad'.
+
+13 ?- actorPelicula('tom hanks', P).
+P = 'forrest gump' ;
+P = naufrago ;
+P = 'el codigo da vinci'.
+
+B) ¿Cuáles son los actores de una película?.
+
+15 ?- actorPelicula(A, 'en busca de la felicidad').
+A = 'will smith' ;
+A = 'jaden smith'.
+
+17 ?- actorPelicula(A, 'el codigo da vinci').
+A = 'tom hanks' ;
+A = 'audrey tautou'.
+
+C) Enocntrar un actor que haya participado en dos películas a y b.
+
+30 ?- actorPelicula(ACTOR, PELICULA1), actorPelicula(ACTOR, PELICULA2), PELICULA1\=PELICULA2.
+ACTOR = 'tom hanks',
+PELICULA1 = 'forrest gump',
+PELICULA2 = naufrago .
+
+30 ?- actorPelicula(ACTOR, PELICULA1), actorPelicula(ACTOR, PELICULA2), PELICULA1\=PELICULA2.
+ACTOR = 'audrey tautou',
+PELICULA1 = 'el codigo da vinci',
+PELICULA2 = 'coco antes de chanel'
+
+D) Encontrar dos actores distintos que hayan estado en la película a.
+
+33 ?- actorPelicula(ACTOR1, PELICULA), actorPelicula(ACTOR2, PELICULA), ACTOR1\=ACTOR2.
+ACTOR1 = 'tom hanks',
+PELICULA = 'el codigo da vinci',
+ACTOR2 = 'audrey tautou' ;
+
+34 ?- actorPelicula(ACTOR1, PELICULA), actorPelicula(ACTOR2, PELICULA), ACTOR1\=ACTOR2.
+ACTOR1 = 'will smith',
+PELICULA = 'en busca de la felicidad',
+ACTOR2 = 'jaden smith' .
+
+E) Encontrar un actor de la película a o la película b (consulta en forma de distunción).
+
+28 ?- actorPelicula(ACTOR, 'en busca de la felicidad');actorPelicula(ACTOR, 'forrest gump').
+ACTOR = 'will smith' .
+
+F) Película en la que hayan tres actores distintos
+
+26 ?- actorPelicula(A,P), actorPelicula(B, P), actorPelicula(C, P), A\==B,A\==C, B\==C.
+A = 'will smith',
+P = 'en busca de la felicidad',
+B = 'jaden smith',
+C = 'james karen'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
