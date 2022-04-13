@@ -1,0 +1,98 @@
+
+--- CONSULTAS A LA BASE DE DATOS VanegasAcevedoThomasCamilo-000287437-BD4.pl ---
+
+
+
+1) Dado el nombre de un actor, Encontrar todos los directores con los que ha trabajado.
+
+?- dirigeActor(NOMBREDIRECTOR, 'will smith').
+NOMBREDIRECTOR = 'glenn ficarra' ;
+NOMBREDIRECTOR = 'francis lawrence' ;
+NOMBREDIRECTOR = 'grabriele muccino' ;
+
+?- dirigeActor(NOMBREDIRECTOR, 'tom hanks').
+NOMBREDIRECTOR = 'robert zemeckis' ;
+NOMBREDIRECTOR = 'robert zemeckis' ;
+NOMBREDIRECTOR = 'ron howard' ;
+
+?- dirigeActor(NOMBREDIRECTOR, 'audrey tautou').
+NOMBREDIRECTOR = 'ron howard' ;
+NOMBREDIRECTOR = 'anne fontaine' ;
+
+
+
+2) Dado el nombre de un actor, Encontrar todos los actores que han trabajado con él.
+
+?- actuanJuntos('will smith', ACTOR, PELICULA), ACTOR\=ACTOR.
+ACTOR = 'jaden smith',
+PELICULA = 'en busca de la felicidad' ;
+ACTOR = 'james karen',
+PELICULA = 'en busca de la felicidad'. 
+
+?- actuanJuntos('tom hanks', ACTOR, PELICULA).
+ACTOR = 'audrey tautou',
+PELICULA = 'el codigo da vinci'.
+
+
+
+
+3) Dado el nombre de un actor, Encontrar dos directores que hayan trabajo con el actor. Una sola expresión debe arrojar los dos resultados.
+
+?- dirigeActor(DIRECTOR1, 'will smith'), dirigeActor(DIRECTOR2, 'will smith'), DIRECTOR1\=DIRECTOR2.
+DIRECTOR1 = 'glenn ficarra',
+DIRECTOR2 = 'francis lawrence' ;
+DIRECTOR1 = 'glenn ficarra',
+DIRECTOR2 = 'grabriele muccino' ;
+
+?- dirigeActor(DIRECTOR1, 'tom hanks'), dirigeActor(DIRECTOR2, 'tom hanks'), DIRECTOR1\=DIRECTOR2.
+DIRECTOR1 = 'robert zemeckis',
+DIRECTOR2 = 'ron howard' ;
+
+
+
+4) Dado el nombre de un director, encontrar todos los actores que han trabajado con él.
+
+?- dirigeActor('robert zemeckis', ACTOR).
+ACTOR = 'tom hanks' ;
+ACTOR = 'tom hanks'
+
+?- dirigeActor('grabriele muccino', ACTORES).
+ACTORES = 'will smith' ;
+ACTORES = 'jaden smith' ;
+ACTORES = 'james karen'.
+
+
+
+5) Dados los nombres de dos directores, Encontrar que actores han trabajado para ambos directores.
+
+?- dirigeActor('grabriele muccino', ACTOR), dirigeActor('francis lawrence', ACTOR), ACTOR==ACTOR.
+ACTOR = 'will smith' ;
+
+?- dirigeActor('robert zemeckis', ACTOR), dirigeActor('ron howard', ACTOR), ACTOR==ACTOR.
+ACTOR = 'tom hanks' ;
+
+
+
+6) Dado el nombre de un director, Encontrar todos los actores que no han trabajado con el.
+
+?- actorPelicula(ACTOR,PELICULA), \+ dirigeActor('grabriele muccino', ACTOR).
+ACTOR = 'tom hanks',
+PELICULA = 'forrest gump' ;
+ACTOR = 'tom hanks',
+PELICULA = naufrago ;
+ACTOR = 'tom hanks',
+PELICULA = 'el codigo da vinci' ;
+ACTOR = 'audrey tautou',
+PELICULA = 'el codigo da vinci' ;
+ACTOR = 'audrey tautou',
+PELICULA = 'coco antes de chanel'  
+
+
+
+
+
+
+
+
+
+
